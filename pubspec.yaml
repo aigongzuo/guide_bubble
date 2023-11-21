@@ -1,7 +1,7 @@
 name: guide_bubble
 description: Leveraging subtle bubble prompts upon the user's initial installation, it introduces a delightful new feature effortlessly. Through a design that is both simple and efficient, we offer users a warm first impression, quietly guiding them to explore the exciting world within the application
 version: 0.0.1
-homepage:
+homepage: https://github.com/aigongzuo/guide_bubble
 
 environment:
   sdk: '>=3.0.6 <4.0.0'
