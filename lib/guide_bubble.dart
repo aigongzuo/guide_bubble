@@ -42,8 +42,10 @@ class GuideBubbleWidget extends StatefulWidget {
 
   const GuideBubbleWidget({
     super.key,
-    this.text = const Text('This is an overlay', overflow: TextOverflow.ellipsis, style: TextStyle(color: Colors.white)),
-    this.textPadding = const EdgeInsets.only(top: 0, left: 0, right: 0, bottom: 0),
+    this.text = const Text('This is an overlay',
+        overflow: TextOverflow.ellipsis, style: TextStyle(color: Colors.white)),
+    this.textPadding =
+        const EdgeInsets.only(top: 0, left: 0, right: 0, bottom: 0),
     this.textMaxWidth = 200,
     this.bubbleMargin = 0,
     this.bgColor,
@@ -69,7 +71,8 @@ class GuideBubbleWidgetState extends State<GuideBubbleWidget> {
     super.initState();
   }
 
-  getWidget(double textLeft, double arrowLeft, BubbleLocation location, double textWidgetWidth, double textWidgetHeight) {
+  getWidget(double textLeft, double arrowLeft, BubbleLocation location,
+      double textWidgetWidth, double textWidgetHeight) {
     return SizedBox(
       width: MediaQuery.of(context).size.width,
       child: Column(
@@ -124,19 +127,25 @@ class GuideBubbleWidgetState extends State<GuideBubbleWidget> {
     RenderBox dependentBox = buildContext.findRenderObject() as RenderBox;
     Offset buttonPosition = dependentBox.localToGlobal(Offset.zero);
 
-    double dependentViewLeft = isRtl() ? MediaQuery.of(context).size.width - buttonPosition.dx : buttonPosition.dx;
+    double dependentViewLeft = isRtl()
+        ? MediaQuery.of(context).size.width - buttonPosition.dx
+        : buttonPosition.dx;
     double dependentViewTop = buttonPosition.dy;
 
     //判断buttonPosition 是否超出屏幕
     if (dependentViewLeft < 0) {
       dependentViewLeft = 0;
-    } else if (dependentViewLeft + dependentBox.size.width > MediaQuery.of(context).size.width) {
-      dependentViewLeft = MediaQuery.of(context).size.width - dependentBox.size.width;
+    } else if (dependentViewLeft + dependentBox.size.width >
+        MediaQuery.of(context).size.width) {
+      dependentViewLeft =
+          MediaQuery.of(context).size.width - dependentBox.size.width;
     }
     // 获取 textWidget 的尺寸
     final Size textSize = getTextMetrics();
-    double textWidgetWidth = textSize.width + widget.textPadding.left + widget.textPadding.right;
-    double textWidgetHeight = textSize.height + widget.textPadding.top + widget.textPadding.bottom;
+    double textWidgetWidth =
+        textSize.width + widget.textPadding.left + widget.textPadding.right;
+    double textWidgetHeight =
+        textSize.height + widget.textPadding.top + widget.textPadding.bottom;
 
     double top;
     double textLeft;
@@ -155,7 +164,10 @@ class GuideBubbleWidgetState extends State<GuideBubbleWidget> {
 
     switch (location) {
       case BubbleLocation.above:
-        top = dependentViewTop - textWidgetHeight - (widget.downImg == null ? 0 : widget.downSize.height) - widget.bubbleMargin;
+        top = dependentViewTop -
+            textWidgetHeight -
+            (widget.downImg == null ? 0 : widget.downSize.height) -
+            widget.bubbleMargin;
         break;
       case BubbleLocation.below:
         top = dependentViewTop + dependentBox.size.height + widget.bubbleMargin;
@@ -166,11 +178,17 @@ class GuideBubbleWidgetState extends State<GuideBubbleWidget> {
 
     // 计算箭头位置、 计算文本的位置
     if (isRtl()) {
-      arrowLeft = dependentViewLeft - dependentBox.size.width + (dependentBox.size.width - widget.upSize.width) / 2;
-      textLeft = dependentViewLeft - dependentBox.size.width + (dependentBox.size.width - textWidgetWidth) / 2;
+      arrowLeft = dependentViewLeft -
+          dependentBox.size.width +
+          (dependentBox.size.width - widget.upSize.width) / 2;
+      textLeft = dependentViewLeft -
+          dependentBox.size.width +
+          (dependentBox.size.width - textWidgetWidth) / 2;
     } else {
-      arrowLeft = dependentViewLeft + (dependentBox.size.width - widget.upSize.width) / 2;
-      textLeft = dependentViewLeft + (dependentBox.size.width - textWidgetWidth) / 2;
+      arrowLeft = dependentViewLeft +
+          (dependentBox.size.width - widget.upSize.width) / 2;
+      textLeft =
+          dependentViewLeft + (dependentBox.size.width - textWidgetWidth) / 2;
     }
 
     // 如果文本超出屏幕边界，则进行调整
@@ -191,7 +209,8 @@ class GuideBubbleWidgetState extends State<GuideBubbleWidget> {
               onTap: () {
                 widget.onTap?.call();
               },
-              child: getWidget(textLeft, arrowLeft, location, textWidgetWidth, textWidgetHeight)),
+              child: getWidget(textLeft, arrowLeft, location, textWidgetWidth,
+                  textWidgetHeight)),
         ),
       ),
     );
@@ -266,10 +285,14 @@ class GuideBubbleWidgetState extends State<GuideBubbleWidget> {
     double dependentViewLeft = buttonPosition.dx;
     double dependentViewTop = buttonPosition.dy;
     //判断buttonPosition 是否超出屏幕
-    if (dependentViewLeft < 0 || (dependentViewLeft + dependentBox.size.width > MediaQuery.of(context).size.width)) {
+    if (dependentViewLeft < 0 ||
+        (dependentViewLeft + dependentBox.size.width >
+            MediaQuery.of(context).size.width)) {
       return true;
     }
-    if (dependentViewTop < 0 || (dependentViewTop + dependentBox.size.height > MediaQuery.of(context).size.height)) {
+    if (dependentViewTop < 0 ||
+        (dependentViewTop + dependentBox.size.height >
+            MediaQuery.of(context).size.height)) {
       return true;
     }
     return false;

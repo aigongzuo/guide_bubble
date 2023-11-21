@@ -29,7 +29,8 @@ class MyApp extends StatelessWidget {
               color: Colors.blue,
               child: GestureDetector(
                   onTap: () {
-                    GuideBubbleWidgetState status = bubbleKey.currentState! as GuideBubbleWidgetState;
+                    GuideBubbleWidgetState status =
+                        bubbleKey.currentState! as GuideBubbleWidgetState;
                     if (status.isShow()) {
                       status.removeView();
                       return;
@@ -48,7 +49,8 @@ class MyApp extends StatelessWidget {
           ),
           GuideBubbleWidget(
             key: bubbleKey,
-            textPadding: const EdgeInsets.only(top: 8, left: 12, right: 12, bottom: 8),
+            textPadding:
+                const EdgeInsets.only(top: 8, left: 12, right: 12, bottom: 8),
             bubbleMargin: 5,
             text: const Text(
               'This is an overlay.\n This is an overlay.',
@@ -62,11 +64,14 @@ class MyApp extends StatelessWidget {
             ),
             upImg: Transform(
                 alignment: Alignment.center,
-                transform: Matrix4.rotationX(180 * 3.1415927 / 180), // 180度，也可以使用pi
-                child: Image.asset('assets/images/lm_arrow.png', fit: BoxFit.fill)),
+                transform:
+                    Matrix4.rotationX(180 * 3.1415927 / 180), // 180度，也可以使用pi
+                child: Image.asset('assets/images/lm_arrow.png',
+                    fit: BoxFit.fill)),
             location: BubbleLocation.auto,
             onTap: () {
-              GuideBubbleWidgetState status = bubbleKey.currentState! as GuideBubbleWidgetState;
+              GuideBubbleWidgetState status =
+                  bubbleKey.currentState! as GuideBubbleWidgetState;
               status.removeView();
             },
           ),

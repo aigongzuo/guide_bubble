@@ -1,6 +1,6 @@
 name: guide_bubble
 description: We introduce a delightful new feature with subtle bubble prompts during the user's initial installation.
-version: 0.0.3
+version: 1.0.0
 homepage: https://github.com/aigongzuo/guide_bubble.git
 
 environment:
