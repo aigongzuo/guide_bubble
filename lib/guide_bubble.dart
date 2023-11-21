@@ -221,7 +221,7 @@ class GuideBubbleWidgetState extends State<GuideBubbleWidget> {
           ),
       textDirection: widget.text.textDirection ?? getTextDirection(),
       textAlign: widget.text.textAlign ?? TextAlign.start,
-      textScaleFactor: widget.text.textScaleFactor ?? 1.0,
+      //textScaleFactor: widget.text.textScaleFactor ?? 1.0,
       maxLines: widget.text.maxLines,
       locale: widget.text.locale,
       strutStyle: widget.text.strutStyle,
