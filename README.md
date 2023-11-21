@@ -4,8 +4,8 @@ description: Leveraging subtle bubble prompts upon the user's initial installati
 ## Features
 
 List what your package can do. Maybe include images, gifs, or videos.
-![img.png](img.png)
-![img_1.png](img_1.png)
+![img.jpg](img.jpg)
+![img_1.jpg](img_1.jpg)
 ## Getting started
 
 dart pub add guide_bubble
